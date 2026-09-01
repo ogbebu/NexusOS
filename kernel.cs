@@ -1,5 +1,7 @@
-//Console.WriteLine("Licensed under the MIT License © Zeroday");
-//Console.WriteLine("NexusOS | Current Version: 0.0.0.1");
+// =============================================== \\
+//    Licensed under the MIT License © Zeroday     \\
+//       NexusOS | Current Version: 0.0.0.1        \\
+// =============================================== \\
 
 using System;
 using System.Collections.Generic;
