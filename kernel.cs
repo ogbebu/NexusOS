@@ -1,6 +1,5 @@
-//Console.WriteLine("Development for this OS started on: 01.09.2026");
+//Console.WriteLine("Licensed under the MIT License © Zeroday");
 //Console.WriteLine("NexusOS | Current Version: 0.0.0.1");
-//Console.WriteLine("All Rights Reserved © Zeroday");
 
 using System;
 using System.Collections.Generic;
