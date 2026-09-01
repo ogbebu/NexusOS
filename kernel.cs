@@ -1,5 +1,32 @@
-static void Run()
+//Console.WriteLine("Development for this OS started on: 01.09.2026");
+//Console.WriteLine("NexusOS | Current Version: 0.0.0.1");
+//Console.WriteLine("All Rights Reserved © Zeroday");
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Sys = Cosmos.System;
+
+namespace NexusOS
 {
-    Console.WriteLine("Development for this OS will start on: 01.09.2026");
-    Console.WriteLine("All Rights Reserved © Zeroday");
+    public class Kernel : Sys.Kernel
+    {
+        protected override void BeforeRun()
+        {
+            // Simple Boot Message just to test is everything working correct.
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("[SUCCESS] Cosmos booted successfully.");
+            Console.WriteLine("[MESSAGE] Welcome to NexusOS!");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        protected override void Run()
+        {
+            // Didn't changed anything here yet, just created project and updated Kernel.cs on Github.
+            Console.Write("Input: ");
+            var input = Console.ReadLine();
+            Console.Write("Text typed: ");
+            Console.WriteLine(input);
+        }
+    }
 }
