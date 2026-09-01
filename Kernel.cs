@@ -1,4 +1,10 @@
-﻿using Cosmos.System.FileSystem;
+﻿
+// =============================================== \\
+//    Licensed under the MIT License © Zeroday     \\
+//       NexusOS | Current Version: 0.0.0.1        \\
+// =============================================== \\
+
+using Cosmos.System.FileSystem;
 using NexusOS.System.Shell;
 using System;
 using System.Collections.Generic;
