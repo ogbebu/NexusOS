@@ -17,6 +17,13 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 * **Command System & Installation** —  Command-Line which helps installing packages/apps support
 * **Bash & Graphics Mode** — System is booting in command-line mode by default, use **display --start** for Graphics Mode
 
+## 🖼️ Screenshots
+
+### 💻 Command Prompt & Bootscreen
+- The NexusOS command-line interface and bootscreen showcase.
+- The command system is currently in an early stage and is actively being expanded with new commands and functionality.
+<img src="./Artwork/Screenshots/Screenshot1.png" width="500", height=400>
+
 ## ⚠️ Important
 * **Running NexusOS on real hardware is not recommended** and may potentially damage data on your disc.
 * For the best and safest experience, use **VirtualBox** or **VMware [I'm using this most of the time]**.
