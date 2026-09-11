@@ -8,7 +8,7 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
   
 [![Status](https://img.shields.io/badge/STATUS-UNDER%20CONSTRUCTION-8B5CF6?style=for-the-badge)](https://github.com/ogbebu/NexusOS)
 [![NexusOS](https://img.shields.io/badge/NEXUS%20OS-D946EF?style=for-the-badge)](https://github.com/ogbebu/NexusOS)
-[![Status](https://img.shields.io/badge/STATUS-NOT%20FINISHED-EAB308?style=for-the-badge)](https://github.com/ogbebu/NexusOS)
+[![Not Finished](https://img.shields.io/badge/NOT%20FINISHED-EAB308?style=for-the-badge)](https://github.com/ogbebu/NexusOS)
 
 ## ☀️ Features
 * **Graphics System** — SVGAII Canvas with support for **1920×1080**
