@@ -32,9 +32,9 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 * For the best and safest experience, use **VirtualBox** or **VMware [I'm using this most of the time]**.
 
 ## ⚒️ Tools
-* **Visual Studio 2022** - https://visualstudio.microsoft.com/pl/vs/older-downloads/
-* **COSMOS Framework** - https://github.com/CosmosOS/Cosmos
-* **COSMOS BMP Converter by Szymekk44** - https://discord.com/channels/992851925894697081/1150514289828954162
+* **Visual Studio 2022** - [Visual Studio Older Versions](https://visualstudio.microsoft.com/pl/vs/older-downloads/)
+* **COSMOS Framework** - [Cosmos Github](https://github.com/CosmosOS/Cosmos)
+* **COSMOS BMP Converter by Szymekk44** - [Szymekk Kingdom Discord](https://discord.com/channels/992851925894697081/1150514289828954162)
 > Tools I used while developing this OS. I also used VMware Workstation 17 to run and test my system.
 
 ### 📝 Third-Party Credits
