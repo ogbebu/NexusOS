@@ -21,6 +21,11 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 * **Running NexusOS on real hardware is not recommended** and may potentially damage data on your disc.
 * For the best and safest experience, use **VirtualBox** or **VMware [I'm using this most of the time]**.
 
+## ⚒️ Tools
+* **Visual Studio 2022** - https://visualstudio.microsoft.com/pl/vs/older-downloads/
+* **COSMOS Framework** - https://github.com/CosmosOS/Cosmos
+* **COSMOS BMP Converter by Szymekk44** - https://discord.com/channels/992851925894697081/1150514289828954162
+
 ### 📝 Third-Party Credits
 > Copyright (c) 2024-2026 Szymekk44  
 > CosmosTTF and optimization code are used under the MIT License.  
