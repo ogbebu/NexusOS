@@ -5,6 +5,7 @@
 // =============================================== \\
 
 using Cosmos.System.FileSystem;
+using NexusOS.System.Booting;
 using NexusOS.System.Shell;
 using System;
 using System.Collections.Generic;
@@ -30,10 +31,7 @@ namespace NexusOS
             VFS = new Cosmos.System.FileSystem.CosmosVFS();
             Cosmos.System.FileSystem.VFS.VFSManager.RegisterVFS(VFS);
 
-            Console.Clear();
-            Printing.WriteSuccess("COSMOS Booted Successfully! Booting NexusOS.");
-            Printing.WriteInfo("Welcome to NexusOS! System is running on version: " + Version);
-            Console.WriteLine("");
+            Boot.BootPhase1();
         }
 
         protected override void Run()
