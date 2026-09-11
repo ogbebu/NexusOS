@@ -38,6 +38,7 @@ namespace NexusOS
         {
             Console.Write(Path + ">");
             var command = Console.ReadLine();
+            Commands.RunCommand(command);
         }
     }
 }
