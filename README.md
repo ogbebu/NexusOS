@@ -5,7 +5,7 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 * **Possible Bugs** - As NexusOS is developed by a single person, bugs and unfinished features may occur.
 * **Active Development** - The system is continuously being developed and improved.
 * **Frequent Changes** - Features, components and system behavior may change during development.
-* 
+  
 [![Status](https://img.shields.io/badge/STATUS-UNDER%20CONSTRUCTION-8B5CF6?style=for-the-badge)](https://github.com/)
 
 ## ☀️ Features
