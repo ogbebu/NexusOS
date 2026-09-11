@@ -21,12 +21,12 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 
 ### 💻 Command Prompt & Bootscreen
 <p align="left">
-  <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot1.png?raw=true" width="600">
+  <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot1.png?raw=true" width="400">
 </p>
 
 ### 🖥️ Basic Interface & Processing
 <p align="right">
-  <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot2.png?raw=true" width="600">
+  <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot2.png?raw=true" width="400">
 </p>
 
 ## ⚠️ Important
