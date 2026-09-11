@@ -20,11 +20,13 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 ## 🖼️ Screenshots
 
 ### 💻 Command Prompt & Bootscreen
-- The NexusOS command-line interface and bootscreen showcase.
-- The command system is currently in an early stage and is actively being expanded with new commands and functionality.
-
 <p align="left">
-  <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot1.png?raw=true" width="500">
+  <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot1.png?raw=true" width="600">
+</p>
+
+### 🖥️ Basic Interface & Processing
+<p align="right">
+  <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot2.png?raw=true" width="600">
 </p>
 
 ## ⚠️ Important
