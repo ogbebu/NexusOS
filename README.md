@@ -18,8 +18,10 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 * **Bash & Graphics Mode** — System is booting in command-line mode by default, use **display --start** for Graphics Mode
 
 ## 🖼️ Screenshots
+
 ### 💻 Command Prompt & Bootscreen
 <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot1.png?raw=true" width="400">
+
 ### 🖥️ Basic Interface & Processing
 <img src="https://github.com/ogbebu/NexusOS/blob/main/Artwork/Screenshots/Screenshot2.png?raw=true" width="400">
 
