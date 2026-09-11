@@ -1,5 +1,8 @@
-﻿using NexusOS.System.Shell;
+﻿using Cosmos.System.Graphics;
+using NexusOS.System.Graphics;
+using NexusOS.System.Shell;
 using System;
+using System.IO;
 using System.Threading;
 
 namespace NexusOS.System.Booting
@@ -58,7 +61,7 @@ namespace NexusOS.System.Booting
             WriteFail("Loading system package: nexus.threading-system");
             WriteDebug("This package does not exist in current system version!");
 
-            WriteFail("Loading system package: nexus.graphics-stack");
+            WriteFail("Loading system package: nexus.interface-service");
             WriteDebug("This package does not exist in current system version!");
 
             WriteFail("Loading system package: nexus.audio-driver");
@@ -66,11 +69,20 @@ namespace NexusOS.System.Booting
 
             Console.WriteLine("");
 
-            WriteMagenta("COSMOS", "Bootloader is starting NexusOS, please wait!", 300);
-
-            WriteMagenta("NEXUS", "NexusOS Booted Successfully, Welcome to Nexus!", 500);
+            WriteMagenta("COSMOS", "Booted Successfully! Starting NexusOS, please wait!", 300);
+            WriteMagenta("NEXUS", "NexusOS Booted Successfully, Welcome to Nexus!", 600);
+            WriteMagenta("SYSTEM", "Starting nexus.interface-service, please wait!", 400);
 
             Console.WriteLine("");
+
+            Thread.Sleep(1000);
         }
+        public static void LoadInterfaceResources()
+        {
+            Interface.Wallpaper = new Bitmap(Resources.Files.DefaultWallpaper);
+            Interface.Cursor = new Bitmap(Resources.Files.Cursor48);
+            Interface.StartInterface();
+        }
+    
     }
 }

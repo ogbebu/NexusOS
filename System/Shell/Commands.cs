@@ -62,6 +62,7 @@ namespace NexusOS.System.Shell
 
                             Cosmos.System.Power.Reboot();
                         }
+                        // words[1] --install [PL: W planach dodać jak juz skoncze komendy i zrobie UI]
                         else
                         {
                             Printing.WriteError("Unknown Argument! Type disc --help to see all available arguments!");
