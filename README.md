@@ -31,7 +31,7 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
     </td>
   </tr>
 </table>
-
+> Wallpaper is AI Generated and will be changed in future :D
 
 ## ⚠️ Important
 * **Running NexusOS on real hardware is not recommended** and may potentially damage data on your disc.
