@@ -12,7 +12,7 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 
 ## ☀️ Features
 * **Graphics System** — SVGAII Canvas with support for **1920×1080**
-* **Advanced Optimization** — System uses advanced Optimization created by **Szyemk44**
+* **Advanced Optimization** — System uses advanced Optimization created by **Szymek44**
 * **Processing & Process Management** — Basic Process Execution and Management
 * **Command System & Installation** —  Command-Line which helps installing packages/apps support
 * **Bash & Graphics Mode** — System is booting in command-line mode by default, use **display --start** for Graphics Mode
