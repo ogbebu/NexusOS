@@ -1,21 +1,37 @@
-﻿using NexusOS.System.Processing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using CosmosTTF;
+using Cobalt.GetIMG;
+using NexusOS.System.Processing;
 
 namespace NexusOS.System.Graphics
 {
     public static class Window
     {
-
-        public static int TopSize = 30;
-
+        public static int TopSize = 25;
         public static void DrawTop(Process proc)
         {
-            CustomDrawing.DrawTopRoundedRectangle(proc.WindowData.WinPos.X, proc.WindowData.WinPos.Y, proc.WindowData.WinPos.Width, proc.WindowData.WinPos.Height, TopSize, Interface.Colors.DarkColor);
-            Interface.MainCanvas.DrawString(proc.Name, Interface.DefaultFont, Interface.Colors.TextColor, proc.WindowData.WinPos.X + 15, proc.WindowData.WinPos.Y + 8);
+            if (Interface.CurrentProcess != proc) //If not clicked
+            {
+                CustomDrawing.DrawTopRoundedRectangle(proc.WindowData.WinPos.X, proc.WindowData.WinPos.Y, proc.WindowData.WinPos.Width, TopSize, TopSize / 2, Interface.Colors.DarkColor);
+                if (proc.WindowData.CachedTop == null) //Lets cache our *already cached* ttf for even better performance!
+                {
+                    Interface.MainCanvas.DrawStringTTFCached(proc.Name, TTFManager.CachedFont.KMB18Dark, proc.WindowData.WinPos.X + 12, proc.WindowData.WinPos.Y + 6);
+                    proc.WindowData.CachedTop = TakeBitmap.GetImage(proc.WindowData.WinPos.X + 12, proc.WindowData.WinPos.Y + 6, TTFManager.GetTTFWidth(proc.Name, "KMB", 18), 18);
+                }
+                else
+                    Interface.MainCanvas.DrawImage(proc.WindowData.CachedTop, proc.WindowData.WinPos.X + 12, proc.WindowData.WinPos.Y + 6);
+            }
+            else
+            {
+                CustomDrawing.DrawTopRoundedRectangle(proc.WindowData.WinPos.X, proc.WindowData.WinPos.Y, proc.WindowData.WinPos.Width, TopSize, TopSize / 2, Interface.Colors.DarkerColor);
+                if (proc.WindowData.CachedTopDark == null) //Lets cache our *already cached* ttf for even better performance!
+                {
+                    Interface.MainCanvas.DrawStringTTFCached(proc.Name, TTFManager.CachedFont.KMB18VeryVeryDark, proc.WindowData.WinPos.X + 12, proc.WindowData.WinPos.Y + 6);
+                    proc.WindowData.CachedTopDark = TakeBitmap.GetImage(proc.WindowData.WinPos.X + 12, proc.WindowData.WinPos.Y + 6, TTFManager.GetTTFWidth(proc.Name, "KMB", 18), 18);
+                }
+                else
+                    Interface.MainCanvas.DrawImage(proc.WindowData.CachedTopDark, proc.WindowData.WinPos.X + 12, proc.WindowData.WinPos.Y + 6);
+            }
         }
     }
 }

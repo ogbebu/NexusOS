@@ -14,5 +14,8 @@ namespace NexusOS.Resources
 
         // Cursors Resources
         [ManifestResourceStream(ResourceName = "NexusOS.Resources.Cursors.Cursor48.bmp")] public static byte[] Cursor48;
+
+        // Fonts Resources
+        [ManifestResourceStream(ResourceName = "NexusOS.Resources.Fonts.KodeMono-Bold.ttf")] public static byte[] KodeMonoBold;
     }
 }

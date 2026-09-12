@@ -6,7 +6,7 @@ using System.Drawing;
 using Cosmos.System;
 using System.Linq;
 using Cobalt.TTF;
-using Cobalt.Graphics;
+using NexusOS.System.Graphics;
 
 namespace CosmosTTF
 {
@@ -92,7 +92,7 @@ namespace CosmosTTF
 			{
 				char curr = c;
 				GlyphResult g = RenderGlyphAsBitmap(font, curr, color, px);
-				GUI.MainCanvas.DrawImageAlpha(g.bmp, x + (int)offx, y + g.offY + (int)px);
+				Interface.MainCanvas.DrawImageAlpha(g.bmp, x + (int)offx, y + g.offY + (int)px);
 				offx += g.offX;
 			}
 		}
@@ -122,7 +122,7 @@ namespace CosmosTTF
 						currB = TTFCache.KMB18VVDark[(int)curr].bitmap;
 						break;
 				}
-				GUI.MainCanvas.DrawImage(currB, x + (int)offx, y);
+				Interface.MainCanvas.DrawImage(currB, x + (int)offx, y);
 				switch (font)
 				{
 					default:

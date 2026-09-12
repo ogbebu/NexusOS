@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cosmos.System.Graphics;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -31,5 +32,8 @@ namespace NexusOS.System.Processing
     {
         public Rectangle WinPos = new Rectangle { X=100, Y=100, Height=100, Width=100};
         public bool Moveable = true;
+
+        public Bitmap CachedTop;
+        public Bitmap CachedTopDark;
     }
 }

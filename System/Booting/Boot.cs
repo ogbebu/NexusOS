@@ -1,4 +1,5 @@
-﻿using Cosmos.System.Graphics;
+﻿using Cobalt.TTF;
+using Cosmos.System.Graphics;
 using NexusOS.System.Graphics;
 using NexusOS.System.Shell;
 using System;
@@ -9,6 +10,8 @@ namespace NexusOS.System.Booting
 {
     public static class Boot
     {
+        public static bool enabledDebugging = false;
+
         private static void WriteOk(string message)
         {
             Printing.WriteOk(message);
@@ -21,10 +24,13 @@ namespace NexusOS.System.Booting
         }
         private static void WriteDebug(string message)
         {
-            Printing.WriteDebug(message);
-            Thread.Sleep(50);
+            if (enabledDebugging == true)
+            {
+                Printing.WriteDebug(message);
+                Thread.Sleep(50);
+            }
         }
-        private static void WriteMagenta(string name, string message, int delay = 50)
+        private static void WriteMagenta(string name, string message, int delay)
         {
             Printing.WriteMagenta(name, message);
             Thread.Sleep(delay);
@@ -77,11 +83,16 @@ namespace NexusOS.System.Booting
 
             Thread.Sleep(1000);
         }
+        
         public static void LoadInterfaceResources()
         {
             Interface.Wallpaper = new Bitmap(Resources.Files.DefaultWallpaper);
             Interface.Cursor = new Bitmap(Resources.Files.Cursor48);
+
+            CosmosTTF.TTFManager.RegisterFont("KMB", Resources.Files.KodeMonoBold);
+
             Interface.StartInterface();
+            TTFCache.CacheAllFonts();
         }
     
     }

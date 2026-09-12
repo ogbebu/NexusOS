@@ -1,5 +1,5 @@
 ﻿using Cobalt.GetIMG;
-using Cobalt.Graphics;
+using NexusOS.System.Graphics;
 using Cosmos.System.Graphics;
 using CosmosTTF;
 
@@ -14,19 +14,23 @@ namespace Cobalt.TTF
 		public static CharData[] KMB18Def = new CharData[255];
 		public static CharData[] KMB18Dark = new CharData[255];
 		public static CharData[] KMB18VVDark = new CharData[255];
+
 		public static void CacheKMB18Default()
 		{
 			for (int i = 32; i < 127; i++) //Only normal characters
 			{
-				GUI.MainCanvas.DrawFilledRectangle(GUI.colors.Main, 0, 0, 14, 28); //Background = GUI.colors.Main
+				Interface.MainCanvas.DrawFilledRectangle(Interface.Colors.MainColor, 0, 0, 14, 28); //Background = GUI.colors.Main
 				char character = (char)i;
-				GlyphResult g = TTFManager.RenderGlyphAsBitmap("KMB", character, GUI.colors.Text, 18);
+				GlyphResult g = TTFManager.RenderGlyphAsBitmap("KMB", character, Interface.Colors.TextColor, 18);
+				
 				KMB18Def[i] = new CharData();
 				KMB18Def[i].offY = g.offY;
 				KMB18Def[i].offX = g.offX;
-				GUI.MainCanvas.DrawImageAlpha(g.bmp, 0, 18 + (int)g.offY);
+
+				Interface.MainCanvas.DrawImageAlpha(g.bmp, 0, 18 + (int)g.offY);
+
 				KMB18Def[i].bitmap = TakeBitmap.GetImage(0, 4, 9, 18);
-			}
+            }
 			for (int i = 0; i < 32; i++) //Rest = '?'
 			{
 				KMB18Def[i] = KMB18Def[63];
@@ -40,13 +44,13 @@ namespace Cobalt.TTF
 		{
 			for (int i = 32; i < 127; i++) //Only normal characters
 			{
-				GUI.MainCanvas.DrawFilledRectangle(GUI.colors.Dark, 0, 0, 14, 28); // Background = GUI.colors.Dark
+				Interface.MainCanvas.DrawFilledRectangle(Interface.Colors.DarkColor, 0, 0, 14, 28); // Background = GUI.colors.Dark
 				char character = (char)i;
-				GlyphResult g = TTFManager.RenderGlyphAsBitmap("KMB", character, GUI.colors.Text, 18);
+				GlyphResult g = TTFManager.RenderGlyphAsBitmap("KMB", character, Interface.Colors.TextColor, 18);
 				KMB18Dark[i] = new CharData();
 				KMB18Dark[i].offY = g.offY;
 				KMB18Dark[i].offX = g.offX;
-				GUI.MainCanvas.DrawImageAlpha(g.bmp, 0, 18 + (int)g.offY);
+				Interface.MainCanvas.DrawImageAlpha(g.bmp, 0, 18 + (int)g.offY);
 				KMB18Dark[i].bitmap = TakeBitmap.GetImage(0, 4, 9, 18);
 			}
 			for (int i = 0; i < 32; i++) //Rest = '?'
@@ -63,13 +67,13 @@ namespace Cobalt.TTF
 		{
 			for (int i = 32; i < 127; i++) //Only normal characters
 			{
-				GUI.MainCanvas.DrawFilledRectangle(GUI.colors.ColorVeryVeryDark, 0, 0, 14, 28); // Background = GUI.colors.Dark
+				Interface.MainCanvas.DrawFilledRectangle(Interface.Colors.DarkerColor, 0, 0, 14, 28); // Background = GUI.colors.Dark
 				char character = (char)i;
-				GlyphResult g = TTFManager.RenderGlyphAsBitmap("KMB", character, GUI.colors.Text, 18);
+				GlyphResult g = TTFManager.RenderGlyphAsBitmap("KMB", character, Interface.Colors.TextColor, 18);
 				KMB18VVDark[i] = new CharData();
 				KMB18VVDark[i].offY = g.offY;
 				KMB18VVDark[i].offX = g.offX;
-				GUI.MainCanvas.DrawImageAlpha(g.bmp, 0, 18 + (int)g.offY);
+				Interface.MainCanvas.DrawImageAlpha(g.bmp, 0, 18 + (int)g.offY);
 				KMB18VVDark[i].bitmap = TakeBitmap.GetImage(0, 4, 9, 18);
 			}
 			for (int i = 0; i < 32; i++) //Rest = '?'

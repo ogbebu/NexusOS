@@ -40,7 +40,25 @@ namespace NexusOS.System.Graphics
             MouseManager.Y = (uint) ScreenSizeY / 2;
 
             // Autostart Apps - Here for now
-            ProcessManager.Start(new Welcomebox { WindowData = new WindowData { WinPos = new Rectangle(ScreenSizeX / 2, ScreenSizeY / 2, 800, 400) }, Name = "Welome to Nexus!", User = "System", PID = 784 });
+            ProcessManager.Start(new Welcomebox { WindowData = new WindowData { WinPos = new Rectangle((ScreenSizeX - 800) / 2, (ScreenSizeY - 400) / 2, 800, 400) }, Name = "Welome to Nexus!", User = "System", PID = 784 });
+        }
+
+        // Fixing crashing issue and not letting user move window outside screen
+        private static void ClampWindow(Process proc)
+        {
+            var window = proc.WindowData.WinPos;
+
+            if (window.X < 0)
+                window.X = 0;
+
+            if (window.Y < 0)
+                window.Y = 0;
+
+            if (window.X + window.Width > ScreenSizeX)
+                window.X = ScreenSizeX - window.Width;
+
+            if (window.Y + window.Height > ScreenSizeY)
+                window.Y = ScreenSizeY - window.Height;
         }
 
         // Moving Windows:
@@ -50,12 +68,14 @@ namespace NexusOS.System.Graphics
             {
                 CurrentProcess.WindowData.WinPos.X = (int)MouseManager.X - oldX;
                 CurrentProcess.WindowData.WinPos.Y = (int)MouseManager.Y - oldY;
+
+                //ClampWindow(CurrentProcess);
             }
             else if (MouseManager.MouseState == MouseState.Left && !Clicked)
             {
                 foreach (var proc in ProcessManager.ProcessList)
                 {
-                    if (proc.WindowData.Moveable)
+                    if (!proc.WindowData.Moveable)
                     {
                         continue;
                     }
