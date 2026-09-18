@@ -11,11 +11,11 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 [![Not Finished](https://img.shields.io/badge/NOT%20FINISHED-EAB308?style=for-the-badge)](https://github.com/ogbebu/NexusOS)
 
 ## ☀️ Features
-* **Graphics System** — SVGAII Canvas with support for **1920×1080**
-* **Advanced Optimization** — System uses advanced Optimization created by **Szymek44**
-* **Processing & Process Management** — Basic Process Execution and Management
-* **Command System & Installation** —  Command-Line which helps installing packages/apps support
-* **Bash & Graphics Mode** — System is booting in command-line mode by default, use **display --start** for Graphics Mode
+* **🎨 Graphics System** — Custom SVGAII Canvas with support for resolutions up to **1920×1080**, providing the foundation for the NexusOS graphical interface.
+* **🚀 Advanced Optimization** — NexusOS uses advanced optimization code created by **Szymekk44** to improve system performance and efficiency.
+* **🔄 Processing & Process Management** — Basic process execution and management system responsible for handling processes running within the operating system.
+* **⌨️ Command System & Installation** — Command-line system used to interact with NexusOS, execute system commands and support package and application installation.
+* **🌐 Bash & Graphics Mode** — NexusOS boots into command-line mode by default, while **`display --start`** can be used to launch the graphical interface.
 
 ## 🖼️ Screenshots
 
@@ -40,7 +40,8 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 
 ## ⚒️ Tools
 * **Visual Studio 2022** - [Visual Studio Older Versions](https://visualstudio.microsoft.com/pl/vs/older-downloads/)
-* **COSMOS Framework** - [Cosmos Github](https://github.com/CosmosOS/Cosmos)
+* **COSMOS Framework** - [Cosmos Github Official Repository](https://github.com/CosmosOS/Cosmos)
+* **COSMOS Website** - [Cosmos Framework Official Website](https://www.gocosmos.org/)
 * **COSMOS BMP Converter by Szymekk44** - [Szymekk Kingdom Discord](https://discord.com/channels/992851925894697081/1150514289828954162)
 > Tools I used while developing this OS. I also used VMware Workstation 17 to run and test my system.
 
