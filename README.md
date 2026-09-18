@@ -11,11 +11,11 @@ An experimental operating system written in **C#** using the **COSMOS Framework*
 [![Not Finished](https://img.shields.io/badge/NOT%20FINISHED-EAB308?style=for-the-badge)](https://github.com/ogbebu/NexusOS)
 
 ## ☀️ Features
-* **🎨 Graphics System** — Custom SVGAII Canvas with support for resolutions up to **1920×1080**, providing the foundation for the NexusOS graphical interface.
-* **🚀 Advanced Optimization** — NexusOS uses advanced optimization code created by **Szymekk44** to improve system performance and efficiency.
-* **🔄 Processing & Process Management** — Basic process execution and management system responsible for handling processes running within the operating system.
-* **⌨️ Command System & Installation** — Command-line system used to interact with NexusOS, execute system commands and support package and application installation.
-* **🌐 Bash & Graphics Mode** — NexusOS boots into command-line mode by default, while **`display --start`** can be used to launch the graphical interface.
+* **🎨 Graphics System** — Custom SVGAII Canvas with support for resolutions up to **1920×1080**, providing the foundation for graphics mode.
+* **🚀 Advanced Optimization** — NexusOS uses advanced optimization code created by **Szymekk44** to improve system performance.
+* **🔄 Processing & Process Management** — Basic process execution and management system responsible for handling processes.
+* **⌨️ Command System & Installation** — Command-line system used to interact with NexusOS and install packages and apps.
+* **🌐 Bash & Graphics Mode** — NexusOS boots into command-line mode by default, while **`display --start`** can be used in bash mode.
 
 ## 🖼️ Screenshots
 
