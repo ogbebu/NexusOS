@@ -8,6 +8,7 @@ namespace NexusOS.System.Graphics
     public static class Window
     {
         public static int TopSize = 25;
+
         public static void DrawTop(Process proc)
         {
             if (Interface.CurrentProcess != proc) //If not clicked

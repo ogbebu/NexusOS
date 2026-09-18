@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <!--<RuntimeIdentifier>cosmos</RuntimeIdentifier>-->
+        <Platform>cosmos</Platform>
+        <SupportsX86Intrinsics>false</SupportsX86Intrinsics>
+        <SelfContained>True</SelfContained>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <EnableGDB>False</EnableGDB>
+        <StartCosmosGDB>False</StartCosmosGDB>
+        <VisualStudioDebugPort>Pipe: Cosmos\Serial</VisualStudioDebugPort>
+        <CosmosDebugPort>Serial: COM1</CosmosDebugPort>
+        <Launch>VMware</Launch>
+        <Profile>VMware</Profile>
+        <Description>Use VMware Player or Workstation to deploy and debug.</Description>
+        <PxeInterface>192.168.0.8</PxeInterface>
+        <VMWareEdition>Workstation</VMWareEdition>
+        <DebugEnabled>False</DebugEnabled>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Kernel.cs~RF16eee9.TMP" />
+      <None Remove="Resources\Cursors\Cursor48.bmp" />
+      <None Remove="Resources\Cursors\Cursor96.bmp" />
+      <None Remove="Resources\Fonts\KodeMono-Bold.ttf" />
+      <None Remove="Resources\Wallpapers\Black.bmp" />
+      <None Remove="Resources\Wallpapers\Default.bmp" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\Cursors\Cursor48.bmp" />
+      <EmbeddedResource Include="Resources\Cursors\Cursor96.bmp" />
+      <EmbeddedResource Include="Resources\Fonts\KodeMono-Bold.ttf" />
+      <EmbeddedResource Include="Resources\Wallpapers\Black.bmp" />
+      <EmbeddedResource Include="Resources\Wallpapers\Default.bmp" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Cosmos.Build" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Debug.Kernel" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.System2" Version="0-*" NoWarn="NU1604" />
+        <PackageReference Include="Cosmos.Plugs" Version="0-*" NoWarn="NU1604" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="System\Applications\General\" />
+      <Folder Include="System\Applications\Games\" />
+      <Folder Include="System\Applications\System\Tools\" />
+      <Folder Include="System\Applications\Tools\" />
+      <Folder Include="System\Packages\" />
+    </ItemGroup>
+
+</Project>

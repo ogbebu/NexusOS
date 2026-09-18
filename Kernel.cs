@@ -44,7 +44,6 @@ namespace NexusOS
             Cosmos.System.FileSystem.VFS.VFSManager.RegisterVFS(VFS);
 
             Boot.BootPhase1();
-            Boot.LoadInterfaceResources();
         }
 
         protected override void Run()

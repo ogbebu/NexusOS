@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using NexusOS.System.Applications.System;
 using System.Drawing;
 using Cosmos.System.Graphics.Fonts;
+using NexusOS.System.Applications.System.Messagebox;
+using NexusOS.System.Applications.System.Processes;
 
 namespace NexusOS.System.Graphics
 {
@@ -40,7 +42,9 @@ namespace NexusOS.System.Graphics
             MouseManager.Y = (uint) ScreenSizeY / 2;
 
             // Autostart Apps - Here for now
-            ProcessManager.Start(new Welcomebox { WindowData = new WindowData { WinPos = new Rectangle((ScreenSizeX - 800) / 2, (ScreenSizeY - 400) / 2, 800, 400) }, Name = "Welome to Nexus!", User = "System", PID = 784 });
+            ProcessManager.Start(new Welcomebox { WindowData = new WindowData { WinPos = new Rectangle((ScreenSizeX - 800) / 2, (ScreenSizeY - 400) / 2, 800, 400) }, Name = "Welome to Nexus!", User = "System", PID = 10725, Description = "System welcome message." });
+            ProcessManager.Start(new Taskbar { WindowData = new WindowData { WinPos = new Rectangle((ScreenSizeX - ScreenSizeX), (ScreenSizeY - Taskbar.TaskbarSize), ScreenSizeX, Taskbar.TaskbarSize), Moveable = false }, Name = "Taskbar", User = "System", PID = 1, Description = "System default tasbar process." });
+
         }
 
         // Fixing crashing issue and not letting user move window outside screen
@@ -69,7 +73,7 @@ namespace NexusOS.System.Graphics
                 CurrentProcess.WindowData.WinPos.X = (int)MouseManager.X - oldX;
                 CurrentProcess.WindowData.WinPos.Y = (int)MouseManager.Y - oldY;
 
-                //ClampWindow(CurrentProcess);
+                ClampWindow(CurrentProcess);
             }
             else if (MouseManager.MouseState == MouseState.Left && !Clicked)
             {
@@ -79,6 +83,7 @@ namespace NexusOS.System.Graphics
                     {
                         continue;
                     }
+
                     if (MouseX > proc.WindowData.WinPos.X && MouseX < proc.WindowData.WinPos.X + proc.WindowData.WinPos.Width)
                     {
                         if (MouseY > proc.WindowData.WinPos.Y && MouseY < proc.WindowData.WinPos.Y + Window.TopSize)

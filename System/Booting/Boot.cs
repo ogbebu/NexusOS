@@ -1,17 +1,25 @@
 ﻿using Cobalt.TTF;
-using Cosmos.System.Graphics;
-using NexusOS.System.Graphics;
-using NexusOS.System.Shell;
 using System;
 using System.IO;
 using System.Threading;
+using Cosmos.System.Graphics;
+
+using NexusOS.System.Core;
+using NexusOS.System.Shell;
+using NexusOS.System.Graphics;
+using System.Linq.Expressions;
 
 namespace NexusOS.System.Booting
 {
     public static class Boot
     {
-        public static bool enabledDebugging = false;
+        public static int IgnoredPackages = 0;
 
+        private static void WriteSuccess(string message)
+        {
+            Printing.WriteSuccess(message);
+            Thread.Sleep(50);
+        }
         private static void WriteOk(string message)
         {
             Printing.WriteOk(message);
@@ -21,19 +29,20 @@ namespace NexusOS.System.Booting
         {
             Printing.WriteFail(message);
             Thread.Sleep(50);
+            IgnoredPackages++;
+        }
+        private static void WriteInfo(string message)
+        {
+            Printing.WriteInfo(message);
+            Thread.Sleep(50);
         }
         private static void WriteDebug(string message)
         {
-            if (enabledDebugging == true)
+            if (NexusSettings.enabledDebugging == true)
             {
                 Printing.WriteDebug(message);
                 Thread.Sleep(50);
             }
-        }
-        private static void WriteMagenta(string name, string message, int delay)
-        {
-            Printing.WriteMagenta(name, message);
-            Thread.Sleep(delay);
         }
 
         public static void BootPhase1()
@@ -41,59 +50,78 @@ namespace NexusOS.System.Booting
             // Code currently only working for Visual Effect
             Console.Clear();
 
+            WriteInfo("Loading System Packages");
             WriteOk("Loading system package: nexus.power-management");
-            //PowerManager.Initialize();
-
             WriteOk("Loading system package: nexus.command-prompt");
-            //ShellManager.Initialize();
-
-            WriteOk("Loading system package: nexus.memory-manager");
             WriteOk("Loading system package: nexus.process-manager");
             WriteOk("Loading system package: nexus.file-system");
-            WriteOk("Loading system package: nexus.device-manager");
-            WriteOk("Loading system package: nexus.input-manager");
-            WriteOk("Loading system package: nexus.network-manager");
             WriteOk("Loading system package: nexus.system-services");
+            WriteOk("Loading system package: nexus.svga-interface");
+            WriteOk("Loading system package: nexus.processing-service");
+            WriteOk("Loading system package: nexus.interface-service");
 
+            WriteFail("Loading system package: nexus.memory-manager");
+            WriteDebug("This package does not exist in current system version!");
+            WriteFail("Loading system package: nexus.device-manager");
+            WriteDebug("This package does not exist in current system version!");
+            WriteFail("Loading system package: nexus.input-manager");
+            WriteDebug("This package does not exist in current system version!");
+            WriteFail("Loading system package: nexus.network-manager");
+            WriteDebug("This package does not exist in current system version!");
             WriteFail("Loading system package: nexus.display-driver");
             WriteDebug("This package does not exist in current system version!");
-
-            WriteFail("Loading system package: nexus.svga-interface");
-            WriteDebug("This package does not exist in current system version!");
-
-            WriteFail("Loading system package: nexus.processing-system");
-            WriteDebug("This package does not exist in current system version!");
-
-            WriteFail("Loading system package: nexus.threading-system");
-            WriteDebug("This package does not exist in current system version!");
-
-            WriteFail("Loading system package: nexus.interface-service");
-            WriteDebug("This package does not exist in current system version!");
-
             WriteFail("Loading system package: nexus.audio-driver");
             WriteDebug("This package does not exist in current system version!");
 
             Console.WriteLine("");
 
-            WriteMagenta("COSMOS", "Booted Successfully! Starting NexusOS, please wait!", 300);
-            WriteMagenta("NEXUS", "NexusOS Booted Successfully, Welcome to Nexus!", 600);
-            WriteMagenta("SYSTEM", "Starting nexus.interface-service, please wait!", 400);
+            if (IgnoredPackages != 0) 
+                Printing.WriteDebug("Ignored unavailable packages, total ignored packages: " + IgnoredPackages);
 
             Console.WriteLine("");
 
-            Thread.Sleep(1000);
+            WriteSuccess("Nexus Booted Successfully! Starting Interface Service, please wait!");
+            LoadInterfaceResources();
+
+            WriteInfo("Starting Interface Service, please wait!"); 
+            StartInterfaceService();
+
         }
         
         public static void LoadInterfaceResources()
         {
-            Interface.Wallpaper = new Bitmap(Resources.Files.DefaultWallpaper);
-            Interface.Cursor = new Bitmap(Resources.Files.Cursor48);
-
-            CosmosTTF.TTFManager.RegisterFont("KMB", Resources.Files.KodeMonoBold);
-
-            Interface.StartInterface();
-            TTFCache.CacheAllFonts();
+            try
+            {
+                Thread.Sleep(500);
+                Interface.Wallpaper = new Bitmap(Resources.Files.DefaultWallpaper);
+                Interface.Cursor = new Bitmap(Resources.Files.Cursor48);
+                CosmosTTF.TTFManager.RegisterFont("KMB", Resources.Files.KodeMonoBold);
+                WriteOk("Prepared and loaded Interface Service!");
+            } 
+            catch
+            {
+                Thread.Sleep(500);
+                WriteFail("Failed to load Interface Service!");
+            }
         }
     
+        public static void StartInterfaceService()
+        {
+            try
+            {
+                Console.WriteLine("");
+                Thread.Sleep(950);
+                Interface.StartInterface();
+                TTFCache.CacheAllFonts();
+            }
+            catch
+            {
+                WriteFail("Fatal System Error! | ID: 0013 | Description: Unable to load Interface Service!");
+                Printing.WriteWarning("Nexus will automaticaly reboot in 3 seconds, please wait!");
+
+                Thread.Sleep(3000);
+                Cosmos.System.Power.Reboot();
+            }
+        }
     }
 }
